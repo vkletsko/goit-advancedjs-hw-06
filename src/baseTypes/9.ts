@@ -2,7 +2,22 @@
   Створіть новий тип даних, який підходить для цих двох об'єктів.
 */
 
-const page1 = {
+// Added optional type PageDetails
+type PageDetails = {
+  createAt: Date;
+  updateAt: Date;
+};
+
+// Added main type Page
+type Page = {
+  title: string;
+  likes: number;
+  accounts: string[];
+  status: 'open' | 'close';
+  details?: PageDetails;
+};
+
+const page1: Page = {
   title: 'The awesome page',
   likes: 100,
   accounts: ['Max', 'Anton', 'Nikita'],
@@ -10,14 +25,14 @@ const page1 = {
   details: {
     createAt: new Date('2021-01-01'),
     updateAt: new Date('2021-05-01'),
-  }
-}
+  },
+};
 
-const page2 = {
+const page2: Page = {
   title: 'Python or Js',
   likes: 5,
   accounts: ['Alex'],
   status: 'close',
-}
+};
 
-export {};
+export { page1, page2 };
